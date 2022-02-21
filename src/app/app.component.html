@@ -1,0 +1,73 @@
+<div class="container">
+
+
+  <h2>List User</h2>
+
+<!--  <input [(ngModel)]="student.id">-->
+<!--  <input [(ngModel)]="student.name">-->
+<!--  <input [(ngModel)]="student.img">-->
+  <div class="container">
+    <button data-toggle="modal" data-target="#create" class="btn btn-primary">Add new city</button>
+  </div>
+  <br>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of list">
+      <td>{{c.id}}</td>
+      <td>{{c.name}}</td>
+      <td><img src="{{c.img}}" width="300" height="250"/></td>
+      <td><button type="button" (click)="showEdit(c)" class="btn btn-warning" data-toggle="modal" data-target="#create">Edit</button></td>
+      <td><button type="button" (click)="delete(c.id)" class="btn btn-danger">Delete</button></td>
+
+    </tr>
+
+    </tbody>
+  </table>
+
+  <div>
+    <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">City's detail</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Id:</label>
+              <input [(ngModel)]="student.id">
+            </div>
+            <div class="form-group">
+              <label>Name:</label>
+              <input [(ngModel)]="student.name">
+            </div>
+            <div class="form-group">
+              <label>Img:</label>
+              <input [(ngModel)]="student.img">
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="create()">Save</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
